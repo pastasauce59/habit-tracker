@@ -15,3 +15,20 @@ user_params = {
 # response = requests.post(url=pixela_endpoint, json=user_params )
 # print(response.text)
 
+#Graph endpoint
+graph_endpoint = f"{pixela_endpoint}/{pixela_username}/graphs"
+
+graph_configuration ={ 
+    "id": "graph1",
+    "name": "Language Practice",
+    "unit": "minutes",
+    "type": "int",
+    "color": "sora"
+}
+
+headers = {
+    "X-USER-TOKEN": pixela_token
+}
+
+response = requests.post(url=graph_endpoint, json=graph_configuration, headers=headers)
+print(response.text)
