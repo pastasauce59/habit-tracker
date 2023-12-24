@@ -49,8 +49,8 @@ entry_configuration = {
     "quantity": "15"
 }
 
-# response = requests.post(url=entry_endpoint, json=entry_configuration, headers=headers)
-# print(response.text)
+response = requests.post(url=entry_endpoint, json=entry_configuration, headers=headers)
+print(response.text)
 
 
 ## PUT Request (UPDATE)
@@ -66,5 +66,5 @@ put_configuration = {
 ##DELETE request
 delete_endpoint = put_endpoint
 
-response = requests.delete(url=delete_endpoint, headers=headers)
-print(response.text)
+# response = requests.delete(url=delete_endpoint, headers=headers)
+# print(response.text)
