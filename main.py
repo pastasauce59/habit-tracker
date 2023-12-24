@@ -1,6 +1,8 @@
 #Creating a habit tracking app using Pixela API
 from keys import *
 import requests
+from datetime import datetime
+
 
 pixela_endpoint = "https://pixe.la/v1/users"
 
@@ -35,12 +37,27 @@ user_params = {
 # print(response.text)
 ## Graph Successfully Created
 
+#POST Request
 entry_endpoint = f"{pixela_endpoint}/{pixela_username}/graphs/graph1"
 
+today = datetime.now()
+# print(today.strftime("%Y%m%d"))
+
 entry_configuration = {
-    "date": "20231222",
-    "quantity": "10"
+    "date": today.strftime("%Y%m%d"),
+    "quantity": "15"
 }
 
-response = requests.post(url=entry_endpoint, json=entry_configuration, headers=headers)
+# response = requests.post(url=entry_endpoint, json=entry_configuration, headers=headers)
+# print(response.text)
+
+
+## PUT Request (UPDATE)
+put_endpoint = f"{entry_endpoint}/{today.strftime('%Y%m%d')}"
+
+put_configuration = {
+    "quantity": "20"
+}
+
+response = requests.put(url=put_endpoint, json=put_configuration, headers=headers)
 print(response.text)
