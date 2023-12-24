@@ -42,6 +42,7 @@ entry_endpoint = f"{pixela_endpoint}/{pixela_username}/graphs/graph1"
 
 today = datetime.now()
 # print(today.strftime("%Y%m%d"))
+another_day = datetime(year=2023, month=12, day=22)
 
 entry_configuration = {
     "date": today.strftime("%Y%m%d"),
@@ -59,5 +60,11 @@ put_configuration = {
     "quantity": "20"
 }
 
-response = requests.put(url=put_endpoint, json=put_configuration, headers=headers)
+# response = requests.put(url=put_endpoint, json=put_configuration, headers=headers)
+# print(response.text)
+
+##DELETE request
+delete_endpoint = put_endpoint
+
+response = requests.delete(url=delete_endpoint, headers=headers)
 print(response.text)
