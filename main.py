@@ -46,11 +46,11 @@ another_day = datetime(year=2023, month=12, day=22)
 
 entry_configuration = {
     "date": today.strftime("%Y%m%d"),
-    "quantity": "15"
+    "quantity": input("How many minutes did you practice target language today? ")
 }
 
-response = requests.post(url=entry_endpoint, json=entry_configuration, headers=headers)
-print(response.text)
+# response = requests.post(url=entry_endpoint, json=entry_configuration, headers=headers)
+# print(response.text)
 
 
 ## PUT Request (UPDATE)
@@ -66,5 +66,5 @@ put_configuration = {
 ##DELETE request
 delete_endpoint = put_endpoint
 
-# response = requests.delete(url=delete_endpoint, headers=headers)
-# print(response.text)
+response = requests.delete(url=delete_endpoint, headers=headers)
+print(response.text)
